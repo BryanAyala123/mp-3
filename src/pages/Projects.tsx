@@ -1,5 +1,6 @@
-import { useState } from 'react';
 import { styled } from 'styled-components';
+import Output from '../components/Output';
+import useCalculator from '../logic/CalculatorLogic';
 
 
 const InputDivStyled=styled.div`
@@ -17,7 +18,7 @@ const InputStyled=styled.input`
     font-size: calc(3vw - 24px);
 `;
 
-const ButtonStyled=styled.div`
+const ButtonStyled=styled.button`
     border: 2px solid #E1D9BC;
     border-radius: 10px;
     background-color: #ACBAC4;
@@ -31,26 +32,25 @@ const ButtonStyled=styled.div`
 
 export default function Projects() {
 
+    const { num1, setNum1, num2, setNum2, result, calculate, clear } = useCalculator();
+
     return (
         <>
             <h2>Projects</h2>
+            
+            <InputDivStyled>
+                <InputStyled type="number" value={num1} onChange={(e) => setNum1(e.target.value)} />
+                <InputStyled type="number" value={num2} onChange={(e) => setNum2(e.target.value)} />
+            </InputDivStyled>
 
-            <div>
-                <h3>JS Calculator</h3>
-                <InputDivStyled>
-                    <InputStyled type="text" id="first-number"/>
-                    <InputStyled type="text" id="second-number"/>
-                </InputDivStyled>
-                <div>
-                    <ButtonStyled onClick="addition()">+</ButtonStyled>
-                    <ButtonStyled onClick="subtraction()">-</ButtonStyled>
-                    <ButtonStyled onClick="multiplication()">*</ButtonStyled>
-                    <ButtonStyled onClick="division()">/</ButtonStyled>
-                    <ButtonStyled onClick="power()">**</ButtonStyled>
-                    <ButtonStyled onClick="clearOutput()">Clear</ButtonStyled>
-                </div>
-                <h3 id="output"></h3>
-            </div>
+            <ButtonStyled onClick={() => calculate('+')}>+</ButtonStyled>
+            <ButtonStyled onClick={() => calculate('-')}>−</ButtonStyled>
+            <ButtonStyled onClick={() => calculate('*')}>×</ButtonStyled>
+            <ButtonStyled onClick={() => calculate('/')}>÷</ButtonStyled>
+            <ButtonStyled onClick={() => calculate('**')}>**</ButtonStyled>
+            <ButtonStyled onClick={clear}>Clear</ButtonStyled>
+
+            <Output result={result} />
         </>
-    )
+    );
 }

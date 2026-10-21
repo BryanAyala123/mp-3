@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 
-const FooterStyled=styled.header`
+const FooterStyled=styled.footer`
     text-align: center;
     background-color: #E1D9BC;
     color: #30364F;

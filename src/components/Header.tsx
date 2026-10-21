@@ -7,6 +7,11 @@ const HeaderStyled=styled.header`
     text-align: left;
     padding: 10px 15px;
     border-bottom: 2px solid #F0F0DB;
+
+    @media screen and (max-width: 750px) {
+        border: none;
+        text-align: center;
+    }
 `;
 
 const H1Styled=styled.h1`

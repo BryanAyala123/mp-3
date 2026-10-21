@@ -7,6 +7,14 @@ const MainStyled=styled.main`
     text-align: center;
     margin: 0 30px;
     width: 70%;
+
+    @media screen and (max-width: 750px) {
+        margin: 0;
+    }
+
+    @media screen and (max-width: 1000px) {
+        width: 100%;
+    }
 `;
 
 

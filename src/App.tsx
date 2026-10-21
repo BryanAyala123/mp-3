@@ -1,5 +1,5 @@
 
-import { styled } from 'styled-components';
+import { styled , createGlobalStyle} from 'styled-components';
 import { createBrowserRouter, Route, RouterProvider, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Education from './pages/Education';
@@ -13,21 +13,27 @@ import Navigations from './components/Navigations';
 import Footer from './components/Footer';
 import Main from './components/Main';
 
-const BodyStyled=styled.body`
-  background-color: #30364F;
+const BodyStyled=createGlobalStyle`
+  body {
+    background-color: #30364F;
     font-family: monospace;
     color: #F0F0DB;
     margin: 0;
+  }
 `;
 
 const NavMainOuterDiv=styled.div`
   display: flex;
+
+  @media screen and (max-width: 750px) {
+    flex-direction: column;
+  }
 `;
 
 function Root(){
     return(
         <>
-          <BodyStyled>
+          <BodyStyled/>
             <Header/>
             <NavMainOuterDiv>
               <Navigations/>
@@ -65,7 +71,6 @@ function Root(){
               </Main>
             </NavMainOuterDiv>
             <Footer/>
-          </BodyStyled>
         </>
     )
 }

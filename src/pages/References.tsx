@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 
-const TableDivStyled=styled.h1`
+const TableDivStyled=styled.div`
     display: flex;
     justify-content: center;
 `;
